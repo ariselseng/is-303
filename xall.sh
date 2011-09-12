@@ -31,7 +31,7 @@ case "$1" in
 
 		;;
 			
-	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar)
+	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar)
 		
 		mkdir "$dname" -p
 		tar xf "$1" -C "$dname"
