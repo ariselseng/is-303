@@ -14,10 +14,8 @@ fi
 if [ "$2" == "" ];
 	#If not, use filename (without extension)
 	then
-		# Setup variable with the filetype, ie: .zip
-		xtype=$(echo "$1"|awk -F"." '{print $NF}');xtype=$(echo -ne ".${xtype}")
 		# gets directoryname without		
-		dname="$(echo "$1"|awk -v t="$xtype" '{sub(t,"");print}')"
+		dname="$(echo "$1"|awk '{gsub(/.zip|.tar.gz|.tar.bz2|.tar.xz|.tar.lzma|.tar|.rar/, ""); print}')"
 	else
 		dname="$2"	
 fi
