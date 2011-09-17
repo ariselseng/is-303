@@ -97,14 +97,14 @@ case "$1" in
 			
 	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar)
 		
-		mkdir "$dname" -p
+		mkdir -p "$dname"
 		tar xf "$1" -C "$dname"
 		foldercheck
 		;;
 		
 	*.rar)
 		
-		mkdir "$dname" -p
+		mkdir -p "$dname"
 		unrar x -o+ -r -y "$1" "$dname"
 		foldercheck		
 		;;
