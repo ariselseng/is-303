@@ -7,3 +7,6 @@
 3. xall
 - A script that extracts most known compression file types. This scripts lets you forget a bunch of syntax and uses the same for every file type.
  (supported file types: .zip, .tar.gz, .tar.gz, .tar.xz, .tar.bz2, .rar) 
+
+
+Every script here is GPLv2.
