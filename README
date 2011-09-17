@@ -1,12 +1,3 @@
-1. systmnfo – Et skript som viser relevant informasjon om et GNU/Linux-system. Info 	som ekstern ip, diskbruk, rambruk etc.
-
-2. xall – Et skript som pakker ut komprimerte filer. (skal minst støtte tar, zip og rar).
-Som sysadmin må man regelmessig åpne pakker og filer. Dette skriptet lar deg 	glemme syntaks til de forskjellige programmene, og bruker en felles syntaks for alle typer filer.
-
-3. rshot – Et skript som tar backup av et område og lagrer på en annen maskin over ssh og bruker rsync. 
-
-Det unike med skriptet er at den skal lage snapshots for hver gang den tar backup, men uten å lagre filer dobbelt. Dette gjøres med hardlinker i filsystemet. Dette skriptet skal kunne kjøres i cron.
-
 1. rshot
 - a script that uses rsync to make snapshots and hardlinks duplicates. A very space-friendly way of making snapshots.
 
