@@ -1,6 +1,7 @@
 #! /bin/bash
 # author: Ari Selseng
-# version: v1
+# version: v2, 17. september 2011
+# license: GPLv2
 # USAGE: xall filename.zip full_directory_structure_to_extract_to [OPTIONAL]
 
 # creating a separate function for the logo, so it's easy to change colors and stuff
@@ -23,13 +24,18 @@ if [ "$2" == "" ];
 		dname="$2"	
 fi
 
+# main purpose of this is to check if the extracted content consists of one single subfolder. Then it asks if the user wants to move the files inside to the upper parent.
 foldercheck () { 
+
 	# gives us the path of the extracted folder
 	dnamepath=$(cd "$dname";pwd)
+
 	# a function to printout the content
 	content () { echo -e "Here is your extracted content: \""$dnamepath"\""; ls --color "$dname";}
+
 	# gives us the number of folders in the extracted directory
 	numberoffolders=$(find "$dname" -maxdepth 1 -type d|tail -n 1|wc -l)
+
 	# gives us the number of files in the extracted directory
 	numberoffiles=$(find "$dname" -maxdepth 1 -type f|tail -n 1|wc -l)
 	
@@ -50,13 +56,14 @@ foldercheck () {
 					#actually doing it.
 					mv "$dname"/*/* "$dname"
 				
-					if [ "$(ls -A "$dname"/"$subfoldertorm")" ]; then
+					if [ $(ls -A "$dname"/"$subfoldertorm") ]; then
 	     						echo "$subfoldertorm was not empty, something probably failed while trying to move the files inside it."
 						else
 		    					rm -r "$dname"/"$subfoldertorm"
 							echo "Removed the empty $subfoldertorm"
 					fi
-				
+					
+					
 					content
 						;;
 
@@ -78,9 +85,13 @@ foldercheck () {
 
 case "$1" in 
 	*.zip)
-
+		# creates folder if neccesary
 		mkdir -p "$dname"
+
+		# The actual unzip command
 		unzip -qqo "$1" -d "$dname"
+
+		#Checks for single subfolder
 		foldercheck
 		;;
 			
@@ -104,15 +115,9 @@ case "$1" in
 		if [ "$1" == "" ];
 			then
 				echo "You'll have to provide a supported file to do something."
-		fi
-
-		# Here we check if
-		if [ "$1" != "" ];
-			then
-				echo "Please provide a supported file to extract."
+			else
+				echo "Please provide a supported file to extract."		
 		fi
 
 		;;
 esac;
-
-	
