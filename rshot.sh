@@ -2,20 +2,21 @@
 
 # author: Ari Selseng
 # version: v1, 15. september 2011
-# license: gplv2
+# license: GPLv2
 
 
-# The folder to backup locally
-foldertobackup=/home/$USER
+# The folder to backup locally ex. /home/$USER
+foldertobackup=
 
-# the user to use with ssh
+# the user to use with ssh ex. john
 remoteuser=
 
-# address to remoteserver (can be host name, dns name or ip)
+# address to remoteserver (can be host name, dns name or ip) ex. myradserver.org
 backupserver=
 
-# The folder where the backups will be placed.
+# The folder where the backups will be placed. ex. "/home/$remoteuser/Backups/"
 backupserverfolder=""
+
 
 # getting the date and time.
 date=`date "+%Y-%m-%dT%H_%M_%S"`

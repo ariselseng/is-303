@@ -1,4 +1,8 @@
 #! /bin/bash
+# author: Ari Selseng
+# version: v2, 18. september 2011
+# license: GPLv2
+
 clear
 # Style
 bold=`tput bold`
