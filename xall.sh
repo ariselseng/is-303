@@ -85,28 +85,44 @@ foldercheck () {
 
 case "$1" in 
 	*.zip)
-		# creates folder if neccesary
-		mkdir -p "$dname"
+		# checks if unzip is installed
+		hash unzip &> /dev/null
+		if [ $? -eq 1 ]
+			then
+		   		echo >&2 "unzip not found"
+			else
+				# creates folder if neccesary
+				mkdir -p "$dname"
 
-		# The actual unzip command
-		unzip -qqo "$1" -d "$dname"
+				# The actual unzip command
+				unzip -qqo "$1" -d "$dname"
 
-		#Checks for single subfolder
-		foldercheck
+				#Checks for single subfolder
+				foldercheck
+		fi
 		;;
 			
 	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar)
-		
-		mkdir -p "$dname"
-		tar xf "$1" -C "$dname"
-		foldercheck
+		hash tar &> /dev/null
+		if [ $? -eq 1 ]
+			then
+		   		echo >&2 "tar not found"
+			else
+				mkdir -p "$dname"
+				tar xf "$1" -C "$dname"
+				foldercheck
+		fi
 		;;
 		
 	*.rar)
-		
-		mkdir -p "$dname"
-		unrar x -o+ -r -y "$1" "$dname"
-		foldercheck		
+		if [ $? -eq 1 ]
+			then
+		   		echo >&2 "unrar not found"
+			else
+				mkdir -p "$dname"
+				unrar x -o+ -r -y "$1" "$dname"
+				foldercheck
+		fi
 		;;
 
 	*)
