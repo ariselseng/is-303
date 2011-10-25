@@ -1,0 +1,24 @@
+# The folder to backup locally ex
+foldertobackup="/foo/bar"
+foldertobackup2="/bar/foo"
+
+# temp folder to create links of the backupfolders, will be deleted afterwards.
+tmpfolder="$HOME/.rshottmp"
+
+# the user to use with ssh ex. john
+remoteuser=foo
+
+#the ssh id path
+sshid="$HOME/.ssh/id_rsa"
+
+# address to remoteserver (can be host name, dns name or ip) ex. myradserver.org
+remoteserver=foo.bar.com
+
+# ssh port of remoteserver
+sshport=22
+
+# encryption used in ssh, arcfour is the fastest.
+sshencryption=arcfour
+
+# The folder where the backups will be placed. ex. "/home/$remoteuser/Backups/"
+remoteserverfolder="/lorem/rshotfolder/computername"
