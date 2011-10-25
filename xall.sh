@@ -19,7 +19,7 @@ if [ "$2" == "" ];
 	#If not, use filename (without extension)
 	then
 		# gets directoryname without		
-		dname="$(echo "$1"|awk '{gsub(/\.zip|\.tar\.gz|\.tar\.bz2|\.tar\.xz|\.tar\.lzma|\.tar|\.rar|\\/, ""); print}')"
+		dname="$(echo "$1"|awk '{gsub(/\.zip|\.tar\.gz|\.tgz|\.tar\.bz2|\.tar\.xz|\.tar\.lzma|\.tar|\.rar|\\/, ""); print}')"
 	else
 		dname="$2"	
 fi
@@ -102,7 +102,7 @@ case "$1" in
 		fi
 		;;
 			
-	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar)
+	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar|*.tgz)
 		hash tar &> /dev/null
 		if [ $? -eq 1 ]
 			then
