@@ -1,6 +1,6 @@
 #! /bin/bash
 # author: Ari Selseng
-# version: v2, 17. september 2011
+# version: v3, 17. september 2011
 # license: GPLv2
 # USAGE: xall filename.zip full_directory_structure_to_extract_to [OPTIONAL]
 
