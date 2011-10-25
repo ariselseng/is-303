@@ -103,26 +103,27 @@ case "$1" in
 		;;
 			
 	*.tar.gz|*.tar.bz2|*.tar.xz|*.tar.lzma|*.tar|*.tgz)
+		
 		hash tar &> /dev/null
-		if [ $? -eq 1 ]
-			then
-		   		echo >&2 "tar not found"
-			else
-				mkdir -p "$dname"
-				tar xf "$1" -C "$dname"
-				foldercheck
+			if [ $? -eq 1 ]; then
+		   			echo >&2 "tar not found"
+				else
+					mkdir -p "$dname"
+					tar xf "$1" -C "$dname"
+					foldercheck
 		fi
 		;;
 		
 	*.rar)
-		if [ $? -eq 1 ]
-			then
-		   		echo >&2 "unrar not found"
-			else
-				mkdir -p "$dname"
-				unrar x -o+ -r -y "$1" "$dname"
-				foldercheck
-		fi
+		hash unrar &> /dev/null
+			if [ $? -eq 1 ]; then
+					echo >&2 "unrar not found."
+				else
+					mkdir -p "$dname"
+					unrar x -o+ -r -y "$1" "$dname"
+					foldercheck
+			fi
+		
 		;;
 
 	*)
