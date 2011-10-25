@@ -44,7 +44,7 @@ foldercheck () {
 		then
 			
 			content
-			echo -e "As in you can see, you have a lonely subfolder in \"$dnamepath\"";echo ""
+			echo -e "As in you can see, you have nothing but a single subfolder in \"$dnamepath\"";echo ""
 			echo -ne "Do you want to move the files inside it to \"$dname\"? [y/n]: "
 			read yno
 			
